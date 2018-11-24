@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/renanberto/air-voice/internal"
-	"github.com/renanberto/air-voice/model"
 	"os"
 )
 
@@ -24,6 +23,6 @@ func NewMysqlRepository() internal.MysqlRepository {
 	return &MysqlRepository{conn}
 }
 
-func (m *MysqlRepository) Query(mysql *model.MysqlQuery) (*sql.Rows, error) {
-	return m.conn.Query(mysql.Query)
+func (m *MysqlRepository) Query(query string) (*sql.Rows, error) {
+	return m.conn.Query(query)
 }

@@ -31,9 +31,10 @@ func main() {
 
 	// Repositories
 	mysqlRepository := repository.NewMysqlRepository()
+	speechRepository := repository.NewSpeechRepository()
 
 	// UseCases
-	speakUseCase := speak.NewSpeaKByID(mysqlRepository)
+	speakUseCase := speak.NewSpeaKByID(mysqlRepository, speechRepository)
 
 	handlers.NewSpeakHandler(handler, speakUseCase)
 	handler.Run(":4000")

@@ -1,5 +1,7 @@
 package domain
 
+import "github.com/renanberto/air-voice/model"
+
 type SpeakUseCase interface {
-	ByID()
+	ByID(model.Speech) error
 }

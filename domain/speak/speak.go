@@ -8,29 +8,26 @@ import (
 
 type Speak struct {
 	mysql internal.MysqlRepository
+	speech internal.SpeechRepository
 }
 
-func NewSpeaKByID(mysqlRepository internal.MysqlRepository) domain.SpeakUseCase {
+func NewSpeaKByID(mysqlRepository internal.MysqlRepository, speechRepository internal.SpeechRepository) domain.SpeakUseCase {
 	return &Speak{
 		mysqlRepository,
+		speechRepository,
+
 	}
 }
 
-func (speak *Speak) ByID() {
-	var sound model.Sounds
-	var sounds []model.Sounds
+func (speak *Speak) ByID(speech model.Speech) error {
 
-	query := &model.MysqlQuery{"SELECT * FROM AIR_VOICE.sounds"}
-	rows, err := speak.mysql.Query(query)
+	speak.mysql.Query("")
+
+	sound, err := speak.speech.TTS(speech.Content)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 
-	for rows.Next() {
-		err = rows.Scan(&sound.ID, &sound.File, &sound.Location, &sound.Name)
-		if err != nil {
-			panic(err.Error())
-		}
-		sounds = append(sounds, sound)
-	}
+	err = speak.speech.PlaySound(sound)
+	return err
 }

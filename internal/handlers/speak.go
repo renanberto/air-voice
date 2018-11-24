@@ -3,6 +3,8 @@ package handlers
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/renanberto/air-voice/domain"
+	"github.com/renanberto/air-voice/model"
+	"net/http"
 )
 
 type SpeakHandler struct {
@@ -10,7 +12,18 @@ type SpeakHandler struct {
 }
 
 func (this *SpeakHandler) SpeakByID(context *gin.Context) {
-	this.Speak.ByID()
+	speech := model.Speech{}
+	err := context.BindJSON(&speech)
+	if err != nil {
+		context.JSON(http.StatusBadRequest,gin.H{
+			"error": "Cannot bind properts",
+		})
+		context.Abort()
+		return
+	}
+	speech.ID = context.Param("id")
+	speech.Organization = context.Param("organization")
+	this.Speak.ByID(speech)
 }
 
 func NewSpeakHandler(engine *gin.Engine, speakUseCase domain.SpeakUseCase) {
@@ -19,6 +32,6 @@ func NewSpeakHandler(engine *gin.Engine, speakUseCase domain.SpeakUseCase) {
 	}
 	V1 := engine.Group("/v1")
 	{
-		V1.GET("/speak/:id", handler.SpeakByID)
+		V1.POST("/speak/:organization/:id", handler.SpeakByID)
 	}
 }
