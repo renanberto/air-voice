@@ -18,7 +18,7 @@ jobs:
 
     - name: Get dependencies
       run: |
-        sudo apt-get update && apt-get install libsdl2-dev
+        sudo apt-get update && sudo apt-get install libsdl2-dev
         export GO111MODULE=on
         go get -v .
 
