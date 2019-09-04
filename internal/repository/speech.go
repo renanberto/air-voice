@@ -3,15 +3,16 @@ package repository
 import (
 	"bytes"
 	"context"
+	"io/ioutil"
+	"time"
+
 	"github.com/faiface/beep"
 	"github.com/faiface/beep/speaker"
 	"github.com/faiface/beep/wav"
 	"github.com/renanberto/air-voice/internal"
-	"io/ioutil"
-	"time"
 
-	texttospeechpb "google.golang.org/genproto/googleapis/cloud/texttospeech/v1"
 	texttospeech "cloud.google.com/go/texttospeech/apiv1"
+	texttospeechpb "google.golang.org/genproto/googleapis/cloud/texttospeech/v1"
 )
 
 type SpeechRepository struct{}
