@@ -1,5 +1,10 @@
 pipeline {
-  agent none
+  agent {
+    node {
+      label 'master'
+    }
+
+  }
   stages {
     stage('ShellScript') {
       parallel {
@@ -7,7 +12,7 @@ pipeline {
           steps {
             sh '''#!/bin/bash
 
-echo "Ol·"'''
+echo "Ol√°"'''
           }
         }
 
@@ -15,7 +20,7 @@ echo "Ol·"'''
           steps {
             sh '''#!/bin/bash
 
-echo "Ol· 2"'''
+echo "Ol√° 2"'''
           }
         }
 
