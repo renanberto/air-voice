@@ -1,10 +1,10 @@
-
 version: 2
+
 jobs:
   build:
+    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     docker:
       - image: circleci/golang:1.13
-    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     steps:
       - checkout
       - run: echo "Teste" > test.cache.txt
@@ -18,3 +18,19 @@ jobs:
       - store_artifacts:
           path: test.artifact.txt
           destination: test.artifact.txt
+
+workflows:
+  version: 2
+  commit-workflow:
+    jobs:
+      - build 
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0 1 * * *"
+          filters:
+            branches:
+              only: try-schedule-workflow
+
+    jobs:
+      - build
