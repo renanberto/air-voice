@@ -28,9 +28,6 @@ workflows:
     triggers:
       - schedule:
           cron: "* * * * *"
-          filters:
-            branches:
-              only: try-schedule-workflow
 
     jobs:
       - build
