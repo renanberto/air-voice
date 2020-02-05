@@ -7,8 +7,10 @@ jobs:
     working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     steps:
       - checkout
-      - run: echo "Teste" > test.cache.yml
+      - run: echo "Teste" > test.cache.txt
       - restore_cache:
           keys: teste.cache
       - save_cache:
           key: teste.cache
+          paths:
+            - test.cache.txt
