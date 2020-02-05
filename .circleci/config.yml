@@ -8,9 +8,13 @@ jobs:
     steps:
       - checkout
       - run: echo "Teste" > test.cache.txt
+      - run: echo "Teste" > test.artifact.txt
       - restore_cache:
           keys: teste.cache
       - save_cache:
           key: teste.cache
           paths:
             - test.cache.txt
+      - store_artifacts:
+          path: test.artifact.txt
+          destination: test.artifact.txt
