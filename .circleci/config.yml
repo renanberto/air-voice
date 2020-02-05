@@ -18,21 +18,21 @@ jobs:
       - store_artifacts:
           path: test.artifact.txt
           destination: test.artifact.txt
-    build2:
-    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
-    docker:
-      - image: circleci/golang:1.13
-    steps:
-      - checkout
-      - run: echo "Teste" > test.cache.txt
-      - run: echo "Teste" > test.artifact.txt
-      - restore_cache:
-          keys: teste.cache
-      - save_cache:
-          key: teste.cache
-          paths:
-            - test.cache.txt
-      - store_artifacts:
-          path: test.artifact.txt
-          destination: test.artifact.txt
-    parallelism: 4
+  build2:
+  working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
+  docker:
+    - image: circleci/golang:1.13
+  steps:
+    - checkout
+    - run: echo "Teste" > test.cache.txt
+    - run: echo "Teste" > test.artifact.txt
+    - restore_cache:
+        keys: teste.cache
+    - save_cache:
+        key: teste.cache
+        paths:
+          - test.cache.txt
+    - store_artifacts:
+        path: test.artifact.txt
+        destination: test.artifact.txt
+  parallelism: 4
