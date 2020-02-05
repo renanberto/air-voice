@@ -18,20 +18,4 @@ jobs:
       - store_artifacts:
           path: test.artifact.txt
           destination: test.artifact.txt
-
-workflows:
-  version: 2
-  commit-workflow:
-    jobs:
-      - build 
-  scheduled-workflow:
-    triggers:
-      - schedule:
-          cron: "* * * * *"
-          filters:
-            branches:
-              only:
-                - master
-
-    jobs:
-      - build
+    parallelism: 2
