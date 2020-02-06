@@ -2,7 +2,6 @@ version: 2
 
 jobs:
   build:
-    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
     docker:
       - image: circleci/golang:1.13
     steps:
@@ -19,7 +18,6 @@ jobs:
           path: test.artifact.txt
           destination: test.artifact.txt
   build2:
-  working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
   docker:
     - image: circleci/golang:1.13
   steps:
