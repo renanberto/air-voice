@@ -7,4 +7,5 @@ env:
   - GO111MODULE=on
 
 script:
+ - export GO111MODULE=on
  - go build . 
