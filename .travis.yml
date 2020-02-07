@@ -7,8 +7,8 @@ env:
   - GO111MODULE=on
 
 before_install:
-  - sudo apt-get -y install alsa
 
 script:
- - export GO111MODULE=on
- - go build . 
+  - sudo apt-get -y install alsa
+  - export GO111MODULE=on
+  - go build . 
