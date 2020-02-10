@@ -3,13 +3,3 @@ language: go
 go:
 - 1.12.x
 - 1.13.x
-
-env:
-  - GO111MODULE=on
-
-before_install:
-
-script:
-  - sudo apt-get -y install alsa
-  - export GO111MODULE=on
-  - go build . 
