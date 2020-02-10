@@ -5,11 +5,19 @@ env:
 
 matrix:
   include:
+
   - go: "1.11.x"
     script: sudo apt-get -y install libsdl2-dev && go get && go build
     cache:
       directories:
         - $HOME/.cache/go-build
         - $HOME/gopath/pkg/mod
+    deploy:
+      provider: releases
+      api_key: "93057c078f6ea86cc76e8c80d904963a5361e3d8"
+      file: "main"
+      skip_cleanup: true
+      on:
+        tags: true
 
 install: true
