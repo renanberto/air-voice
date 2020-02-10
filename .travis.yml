@@ -3,9 +3,9 @@ language: go
 matrix:
   include:
   - go: "1.10.x"
-    script: go build -v ./...
+    script: go build 
   - go: "1.11.x"
-    script: go build -v -mod=vendor ./...
+    script: go build
 
 env:
   - GO111MODULE=on
