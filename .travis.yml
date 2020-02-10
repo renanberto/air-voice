@@ -3,9 +3,9 @@ language: go
 matrix:
   include:
   - go: "1.10.x"
-    script: sudo apt-get -y install libsdl2-dev && go build 
+    script: sudo apt-get -y install libsdl2-dev && go get && go build
   - go: "1.11.x"
-    script: sudo apt-get -y install libsdl2-dev && go build 
+    script: sudo apt-get -y install libsdl2-dev && go get && go build 
 
 env:
   - GO111MODULE=on
