@@ -14,7 +14,7 @@ matrix:
         - $HOME/gopath/pkg/mod
     deploy:
       provider: releases
-      api_key: "93057c078f6ea86cc76e8c80d904963a5361e3d8"
+      api_key: "a55f642ee54e42750aba418dd77d7b6e1cfeecbf"
       file: "main"
       skip_cleanup: true
 
