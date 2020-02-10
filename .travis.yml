@@ -17,7 +17,5 @@ matrix:
       api_key: "93057c078f6ea86cc76e8c80d904963a5361e3d8"
       file: "main"
       skip_cleanup: true
-      on:
-        tags: true
 
 install: true
