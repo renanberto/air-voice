@@ -16,7 +16,7 @@ matrix:
       provider: releases
       api_key: "$GITHUB_TOKEN"
       file: "main"
-      skip_cleanup: true
+      cleanup: true
       on:
         branch: master 
 
