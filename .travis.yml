@@ -14,8 +14,10 @@ matrix:
         - $HOME/gopath/pkg/mod
     deploy:
       provider: releases
-      api_key: "a55f642ee54e42750aba418dd77d7b6e1cfeecbf"
+      api_key: "$GITHUB_TOKEN"
       file: "main"
       skip_cleanup: true
+      on:
+        branch: master
 
 install: true
