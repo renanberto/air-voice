@@ -1,0 +1,5 @@
+steps:
+  - name: ":golang:"
+    command: "./scripts/build.sh"
+    env:
+      BUILDKITE_GOLANG_IMPORT_PATH: "github.com/renanberto/air-voice"
