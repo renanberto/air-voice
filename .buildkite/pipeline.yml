@@ -1,5 +1,10 @@
 steps:
-  - name: ":golang:"
-    command: "./scripts/build.sh"
-    env:
-      BUILDKITE_GOLANG_IMPORT_PATH: "github.com/renanberto/air-voice"
+  - plugins:
+      - golang-cross-compile#v1.3.0:
+          build: main.go
+          import: "github.com/renanberto/air-voice"
+          targets:
+            - version: "1.13"
+              goos: linux
+              goarch: amd64
+              gomodule: "on"
