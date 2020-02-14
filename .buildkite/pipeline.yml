@@ -3,8 +3,8 @@ steps:
     command: go build .
     plugins:
       - golang#v2.0.0:
-        version: 1.13
-        environment:
-          - GOOS=android
-          - GOARCH=arm
-          - GOARM=7
+          version: 1.13
+          environment:
+            - GOOS=android
+            - GOARCH=arm
+            - GOARM=7
