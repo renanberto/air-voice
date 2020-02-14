@@ -4,6 +4,7 @@ steps:
     plugins:
       - golang#v2.0.0:
           version: 1.13
+          import: github.com/renanberto/air-voice
           environment:
             - GOOS=android
             - GOARCH=arm
