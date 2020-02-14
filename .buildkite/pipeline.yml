@@ -2,7 +2,7 @@ steps:
   - label: test cross compiling
     command: go build .
     plugins:
-      - golang#v2.0.0:
+      - gopath-checkout#v1.0.1:
           version: 1.13
           import: github.com/renanberto/air-voice
           environment:
