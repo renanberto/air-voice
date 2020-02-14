@@ -1,10 +1,10 @@
 steps:
-  - plugins:
-      - golang-cross-compile#v1.3.0:
-          build: main.go
-          import: "github.com/renanberto/air-voice"
-          targets:
-            - version: "1.13"
-              goos: linux
-              goarch: amd64
-              gomodule: "on"
+  - label: test cross compiling
+    command: go build .
+    plugins:
+      - golang#v2.0.0:
+        version: 1.13
+        environment:
+          - GOOS=android
+          - GOARCH=arm
+          - GOARM=7
