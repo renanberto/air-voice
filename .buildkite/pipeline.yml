@@ -1,11 +1,4 @@
 steps:
-  - label: test cross compiling
-    command: go build .
-    plugins:
-      - gopath-checkout#v1.0.1:
-          version: 1.13
-          import: github.com/renanberto/air-voice
-          environment:
-            - GOOS=android
-            - GOARCH=arm
-            - GOARM=7
+  - command: "./scripts/build.sh"
+    env:
+      BUILDKITE_GOLANG_IMPORT_PATH: "github.com/renanberto/air-voice"
