@@ -2,3 +2,4 @@ steps:
   - command: "./scripts/build.sh"
     env:
       BUILDKITE_GOLANG_IMPORT_PATH: "github.com/renanberto/air-voice"
+      BUILDKITE_BUILD_CHECKOUT_PATH: "/tmp/go/src/github.com/renanberto/air-voice"
