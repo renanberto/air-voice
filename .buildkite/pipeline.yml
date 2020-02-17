@@ -4,3 +4,5 @@ steps:
       - "main"
     env:
       BUILDKITE_GOLANG_IMPORT_PATH: "github.com/renanberto/air-voice"
+    agents:
+      queue: "priority"
