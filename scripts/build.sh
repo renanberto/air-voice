@@ -1,2 +1,2 @@
 #!/bin/bash
-go build
+go build -o main
