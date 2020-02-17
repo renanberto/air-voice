@@ -1,12 +1,6 @@
 steps:
-  - plugins:
-    - danthorpe/cache#v1.0.0:
-        cache_key: "cache-test-1"
-        paths: [ "cache-test" ]
-    env:
-      BUILDKITE_PLUGIN_CACHE_S3_BUCKET_NAME: ""
-      BUILDKITE_PLUGIN_CACHE_S3_PROFILE: ""
-  - command: "touch cache-test"
   - command: "./scripts/build.sh"
+    artifact_paths:
+      - "main"
     env:
       BUILDKITE_GOLANG_IMPORT_PATH: "github.com/renanberto/air-voice"
