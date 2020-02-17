@@ -3,9 +3,7 @@ steps:
     - danthorpe/cache#v1.0.0:
         cache_key: "cache-test-1"
         paths: [ "cache-test" ]
-steps:
   - command: "touch cache-test"
-steps:
   - command: "./scripts/build.sh"
     env:
       BUILDKITE_GOLANG_IMPORT_PATH: "github.com/renanberto/air-voice"
