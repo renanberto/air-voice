@@ -1,6 +1,4 @@
 steps:
-  - name: ":golang:"
-    command: "./scripts/build.sh"
-    plugins:
-      - docker-compose#v3.0.3:
-          run: app
+  - command: "./scripts/build.sh"
+    env:
+      BUILDKITE_GOLANG_IMPORT_PATH: "github.com/renanberto/air-voice"
