@@ -21,7 +21,7 @@ func NewHttpHandler() *gin.Engine {
 		AllowHeaders:     []string{"Authorization", "Content-Type"},
 		ExposeHeaders:    []string{"*"},
 		AllowCredentials: true,
-		MaxAge:           24 * time.Hour,
+		MaxAge:           24 *  time.Hour,
 	}))
 	return httpHandler
 }
