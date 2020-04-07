@@ -31,8 +31,8 @@ jobs:
           paths:
             - test.cache.txt
       - store_artifacts:
-          path: test.artifact.txt
-          destination: test.artifact.txt
+          path: test.artifact1.txt
+          destination: test.artifact1.txt
 workflows:
   version: 2
   build_golang:
